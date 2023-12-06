@@ -4,6 +4,8 @@
 
 #include<queue>
 
+#include<stack>
+
 using namespace std;
 
 
@@ -40,18 +42,19 @@ public:
         }
     }
 
-   /* bool isLeaf()
+    void inorderTraverse(TreeNode<T>* root)
     {
-        if (left == nullptr && right == nullptr)
+        if (root != nullptr)
         {
-            return true;
-        }
+            
+            inorderTraverse(root->left); //recursion!
+            
+            cout << root->nodeValue << " "; //omitting endl
+            
+            inorderTraverse(root->right);
 
-        else
-        {
-            return false;
         }
-    }*/
+    }
 
     void levelOrderTraverse(TreeNode<T>* root)
     {
@@ -86,4 +89,37 @@ public:
     }
 
 
-};
+    int getLeafCount(TreeNode<T>* root)
+    {
+        if (root == nullptr)
+        {
+            return 0;
+        }
+
+        int leafCount = 0;
+        std::stack<TreeNode<T>*> nodeStack;
+        nodeStack.push(root);
+        
+        while (!nodeStack.empty())
+        {
+            TreeNode<T>* current = nodeStack.top();
+            nodeStack.pop();
+
+
+            if (current->left != nullptr) {
+                nodeStack.push(current->left);
+            }
+
+            if (current->right != nullptr) {
+                nodeStack.push(current->right);
+            }
+
+            if (current->isLeaf()) {
+                leafCount++;
+            }
+        } //end while not empty stack
+        return leafCount;
+
+    } //end of `getLeafCount`
+
+}; //end TreeNode.h

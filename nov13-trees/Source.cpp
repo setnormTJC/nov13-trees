@@ -6,20 +6,25 @@
 using namespace std;
 
 
+
+
+
 int main()
 {
+    //main(); 
 
-    TreeNode<string> rootOfPeopleTree("Alice");
 
-    rootOfPeopleTree.left = new TreeNode<string>("Carol"); //new (heap allocation) is slow
+    //TreeNode<string> rootOfPeopleTree("Alice");
 
-    TreeNode<string> rightChildOfRoot("Bob"); 
+    //rootOfPeopleTree.left = new TreeNode<string>("Carol"); //new (heap allocation) is slow
 
-    rootOfPeopleTree.right = &rightChildOfRoot; 
+    //TreeNode<string> rightChildOfRoot("Bob"); 
 
-    rootOfPeopleTree.right->right = new TreeNode<string>("Darth");
+    //rootOfPeopleTree.right = &rightChildOfRoot; 
 
-    rootOfPeopleTree.levelOrderTraverse(&rootOfPeopleTree);
+    //rootOfPeopleTree.right->right = new TreeNode<string>("Darth");
+
+    //rootOfPeopleTree.levelOrderTraverse(&rootOfPeopleTree);
     
     
     //cout << std::boolalpha << rootOfPeopleTree.isLeaf() << endl; 
@@ -50,7 +55,20 @@ int main()
     //cout << std::boolalpha << root.isLeaf() << endl; 
     //cout << std::boolalpha << leftChildOfRoot.isLeaf() << endl;
 
+
+
+    //auto inorderTree = generateInorderTree(); 
+
+    //inorderTree->levelOrderTraverse(inorderTree);
+
+    //inorderTree->inorderTraverse(inorderTree); //depth-first traversal algo.
     
+
+    auto levelOrderTree = generateLevelOrderTree();
+
+    //levelOrderTree->inorderTraverse(levelOrderTree);
+
+    cout << "The number of leaves is: " << levelOrderTree->getLeafCount(levelOrderTree) << endl;
 
     return 0;
 }
