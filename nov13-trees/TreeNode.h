@@ -89,6 +89,13 @@ public:
     }
 
 
+
+}; //end TreeNode.h
+
+
+namespace auxillary_tree
+{
+    template<typename T>
     int getLeafCount(TreeNode<T>* root)
     {
         if (root == nullptr)
@@ -99,7 +106,7 @@ public:
         int leafCount = 0;
         std::stack<TreeNode<T>*> nodeStack;
         nodeStack.push(root);
-        
+
         while (!nodeStack.empty())
         {
             TreeNode<T>* current = nodeStack.top();
@@ -122,4 +129,4 @@ public:
 
     } //end of `getLeafCount`
 
-}; //end TreeNode.h
+}

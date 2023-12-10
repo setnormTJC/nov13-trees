@@ -68,7 +68,16 @@ int main()
 
     //levelOrderTree->inorderTraverse(levelOrderTree);
 
-    cout << "The number of leaves is: " << levelOrderTree->getLeafCount(levelOrderTree) << endl;
+    //previous, silly approach: 
+    //cout << "The number of leaves is: " << levelOrderTree->getLeafCount(levelOrderTree) << endl;
+
+    //updated approaching using namespace: 
+    using namespace auxillary_tree; 
+
+    cout << "The number of leaves is: " << getLeafCount(levelOrderTree) << endl; 
+
+    //updated approach to the levelOrderTraverse (don't call function on object AND pass in pointer to that object - silly): 
+    levelOrderTree->levelOrderTraverse(); 
 
     return 0;
 }
